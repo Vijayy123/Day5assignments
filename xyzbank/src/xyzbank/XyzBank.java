@@ -2,7 +2,7 @@ package xyzbank;
 
 import java.util.Scanner;
 
-public class AccountTypes {
+public class XyzBank {
 
 	public static void main(String[] args) {
 		
