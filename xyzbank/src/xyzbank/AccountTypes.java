@@ -17,13 +17,14 @@ public class AccountTypes {
 		ac.setAmount(1000);
 		ac.setOwner_name("Vijay");
 		ac.setStatus("active");
+		ac.setAccType("savings");
 		
 		System.out.println(ac);
 		int newBal = ac.getAmount();
 		
-		System.out.println("Enter your Choice 1. Deposite \n 2. withdraw2");
+		System.out.println("Enter your Choice \n1. Deposite \n 2. withdraw2");
 		
-		System.out.println("enter what u want");
+		System.out.println("choose your option");
 		
 		Scanner sc  = new Scanner(System.in);
 		
@@ -37,6 +38,7 @@ public class AccountTypes {
 			int money = sc.nextInt();
 			newBal += money;
 			System.out.println("the New Bal is  "+ newBal);
+			System.out.println(ac);
 			break;
 			
 		case 2 : 
@@ -45,6 +47,7 @@ public class AccountTypes {
 			if(withDraw < newBal) {
 				newBal -= withDraw;
 				System.out.println("the new bal is " + newBal);
+				System.out.println(ac);
 			}
 			else
 			{

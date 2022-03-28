@@ -1,8 +1,17 @@
 package xyzbank;
 
-public class AccountDetails implements ManageAccounts{
+public class AccountDetails{
 	String owner_name;
 	Address addr;
+	private String accType;
+
+	public String getAccType() {
+		return accType;
+	}
+
+	public void setAccType(String accType) {
+		this.accType = accType;
+	}
 
 	public Address getAddr() {
 		return addr;
@@ -46,21 +55,13 @@ public class AccountDetails implements ManageAccounts{
 
 	@Override
 	public String toString() {
-		return "AccountDetails [owner_name=" + owner_name + ", addr=" + addr + ", Amount=" + Amount + ", Status="
-				+ Status + "]";
+		return "AccountDetails [owner_name=" + owner_name + ", addr=" + addr + ", accType=" + accType + ", Amount="
+				+ Amount + ", Status=" + Status + "]";
 	}
 
-	@Override
-	public String Current() {
-		
-		return "current";
-	}
+	
 
-	@Override
-	public String Savings() {
-		
-		return "savings";
-	}
+	
 
 	
 }
