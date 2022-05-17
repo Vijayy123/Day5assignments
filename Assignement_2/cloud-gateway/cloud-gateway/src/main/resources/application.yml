@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:    gateway:      routes:
+        - id: PROCESS-PENSION
+          uri: lb://PROCESS-PENSION
+          predicates:
+            - Path=/processpension/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: process-pension
+                fallbackUri: forward:/processPensionServiceFallBack
+        - id: PENSIONER-DETAIL
+          uri: lb://PENSIONER-DETAIL
+          predicates:
+            - Path=/pensionerdetail/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: pensioner-detail
+                fallbackUri: forward:/pensionerDetailServiceFallBack          
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeOutInMilliseconds: 4000
+  dashboard:
+    proxy-stream-allow-list:
+      - 'localhost'
+management:  endpoints:    web:      exposure:        include: hystrix.stream, info, health
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone : http://localhost:8761/eureka
+      
+  instance:
+    hostname: localhost
