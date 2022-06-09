@@ -1,9 +1,9 @@
-package order;
+package com.orderdetails.dto;
 
-public class Address {
+public class AddressDto {
 	private String city;
 	private String state;
-	private String pincode;
+	private int pincode;
 
 	public String getCity() {
 		return city;
@@ -21,17 +21,12 @@ public class Address {
 		this.state = state;
 	}
 
-	@Override
-	public String toString() {
-		return "Address [city=" + city + ", state=" + state + ", pincode=" + pincode + "]";
-	}
-
-	public String getPincode() {
+	
+	public int getPincode() {
 		return pincode;
 	}
 
-	public void setPincode(String pincode) {
+	public void setPincode(int pincode) {
 		this.pincode = pincode;
 	}
-
 }
