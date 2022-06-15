@@ -21,17 +21,16 @@ public class OrderDetailsService {
 	private OrderDetailsRepository repo;
 
 	public Order saveorderdetails(OrderDto order) {
-		
+
 		Order entity = new Order();
 		entity.setTotalAmount(order.getTotalAmount());
 		entity.setOrderstatus(order.getOrderStatus());
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 		entity.setOrderDate(LocalDate.parse(order.getOrderDate(), formatter));
-		
-		
+
 		List<OrderLine> orderLines = new ArrayList<>();
-		
-		for(OrderLineDto o : order.getOrderLines()) {
+
+		for (OrderLineDto o : order.getOrderLines()) {
 			OrderLine orderline = new OrderLine();
 			orderline.setEta(o.getEta());
 			orderline.setItem(o.getItem());
